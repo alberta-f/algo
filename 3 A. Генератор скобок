@@ -1,0 +1,45 @@
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, x):
+        self.items.append(x)
+
+    def pop(self):
+        if self.items:
+            return self.items.pop()
+    
+    def top(self):
+        if self.items:
+            return self.items[-1]
+    
+    def __bool__(self):
+        return bool(self.items)
+
+def is_correct_bracket_seq(string):
+    backet_seq = {'(': ')', '[': ']', '{': '}'}
+    stack = Stack()
+
+    for x in string:
+        if x in backet_seq:
+            stack.push(backet_seq[x])
+
+        elif stack.pop() != x:
+            return False
+
+    return not stack
+
+def all_brackets(n, prefix=''):
+    if n == 0:
+        if is_correct_bracket_seq(prefix):
+            print(prefix)
+    else:
+        all_brackets(n - 1, prefix + '(')
+        all_brackets(n - 1, prefix + ')')
+    
+def main():
+    n = int(input())
+    all_brackets(n * 2)
+
+if __name__ == '__main__':
+    main()
