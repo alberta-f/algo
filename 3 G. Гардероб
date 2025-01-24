@@ -1,0 +1,18 @@
+def counter_sort(array, k):
+    counts = [0] * k
+
+    for x in array:
+        counts[x] += 1
+
+    result = []
+    for i in range(k):
+        result += [i] * counts[i]
+
+    return result
+
+def main():
+    n = input()
+    print(*counter_sort([int(i) for i in input().split()], 3))
+
+if __name__ == '__main__':
+    main()
