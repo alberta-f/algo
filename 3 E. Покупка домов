@@ -1,0 +1,8 @@
+n, budget = map(int, input().split())
+houses = sorted([int(i) for i in input().split()])
+
+m = 0
+while sum(houses[:m]) <= budget and m <= n:
+	m += 1
+    
+print(m - 1)
