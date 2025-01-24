@@ -1,0 +1,16 @@
+def main():
+    n, m = int(input()), int(input())
+    array = sorted([int(i) for i in input().split()] + [int(i) for i in input().split()])
+
+    full = n + m
+    if full % 2:
+        median = array[full // 2]
+    
+    else:
+        median = (array[full // 2 - 1] + array[full // 2]) / 2
+    
+    print(median)
+
+if __name__ == '__main__':
+    main()
+    
