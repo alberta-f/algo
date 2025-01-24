@@ -1,0 +1,14 @@
+from collections import Counter
+
+
+def main():
+    n = int(input())
+    unis = Counter([int(i) for i in input().split()])
+    unis = sorted(unis, key=lambda uni: (-unis[uni], uni))
+    k = int(input())
+
+    print(*unis[:k])
+
+
+if __name__ == '__main__':
+    main()
