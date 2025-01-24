@@ -1,0 +1,22 @@
+def keyboard_generating(string, prefix=''):
+    keyboard = {'2':'abc',
+    '3':'def',
+    '4':'ghi',
+    '5':'jkl',
+    '6':'mno',
+    '7':'pqrs',
+    '8':'tuv',
+    '9':'wxyz'}
+
+    if string:
+        for alpha in keyboard[string[0]]:
+            keyboard_generating(string[1:], prefix + alpha)
+
+    else:
+        print(prefix, end=' ')
+
+def main():
+    keyboard_generating(input())
+
+if __name__ == '__main__':
+    main()
